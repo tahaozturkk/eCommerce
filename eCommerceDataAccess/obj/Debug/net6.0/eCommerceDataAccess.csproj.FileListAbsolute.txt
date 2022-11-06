@@ -1,0 +1,5 @@
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.csproj.AssemblyReference.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.AssemblyInfoInputs.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.AssemblyInfo.cs
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.csproj.CoreCompileInputs.cache
