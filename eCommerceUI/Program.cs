@@ -1,13 +1,16 @@
 using eCommerceDataAccess.Context;
 using eCommerceEntity.Entities;
+using eCommerceService;
 using Microsoft.AspNetCore.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.ServiceRegister();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSqlServer<eCommerceDbContext>(builder.Configuration.GetConnectionString("SqlServer"));
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<eCommerceDbContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<eCommerceDbContext>();
 
 
 var app = builder.Build();

@@ -22,6 +22,48 @@ namespace eCommerceDataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CommentProduct", b =>
+                {
+                    b.Property<Guid>("CommentsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CommentsId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("CommentProduct");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.AppRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
             modelBuilder.Entity("eCommerceEntity.Entities.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -87,31 +129,187 @@ namespace eCommerceDataAccess.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("eCommerceEntity.Entities.Basket", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("BasketAddedData")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<bool>("IsPayment")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Unit")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                    b.HasIndex("ProductId");
 
-                    b.ToTable("AspNetRoles", (string)null);
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("WriteData")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Discount", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("DiscountRate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("OptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OptionId");
+
+                    b.ToTable("Discounts");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Option", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Options");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BasketId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("OrderCreatedData")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OrderStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderUpdatedData")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CVV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreditCartNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpireDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPaymentSuccess")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NameLastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Product", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -220,9 +418,83 @@ namespace eCommerceDataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("OptionProduct", b =>
+                {
+                    b.Property<Guid>("OptionsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OptionsId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("OptionProduct");
+                });
+
+            modelBuilder.Entity("CommentProduct", b =>
+                {
+                    b.HasOne("eCommerceEntity.Entities.Comment", null)
+                        .WithMany()
+                        .HasForeignKey("CommentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eCommerceEntity.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Basket", b =>
+                {
+                    b.HasOne("eCommerceEntity.Entities.Product", "Product")
+                        .WithMany("Baskets")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Discount", b =>
+                {
+                    b.HasOne("eCommerceEntity.Entities.Option", "Option")
+                        .WithMany("Discounts")
+                        .HasForeignKey("OptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Option");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Order", b =>
+                {
+                    b.HasOne("eCommerceEntity.Entities.Basket", "Basket")
+                        .WithMany("Orders")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Payment", b =>
+                {
+                    b.HasOne("eCommerceEntity.Entities.Order", "Order")
+                        .WithMany("Payments")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("eCommerceEntity.Entities.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -249,7 +521,7 @@ namespace eCommerceDataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("eCommerceEntity.Entities.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -269,6 +541,41 @@ namespace eCommerceDataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("OptionProduct", b =>
+                {
+                    b.HasOne("eCommerceEntity.Entities.Option", null)
+                        .WithMany()
+                        .HasForeignKey("OptionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eCommerceEntity.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Basket", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Option", b =>
+                {
+                    b.Navigation("Discounts");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Order", b =>
+                {
+                    b.Navigation("Payments");
+                });
+
+            modelBuilder.Entity("eCommerceEntity.Entities.Product", b =>
+                {
+                    b.Navigation("Baskets");
                 });
 #pragma warning restore 612, 618
         }

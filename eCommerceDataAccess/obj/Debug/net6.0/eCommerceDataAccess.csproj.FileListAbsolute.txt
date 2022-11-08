@@ -3,3 +3,15 @@ D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eC
 D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.AssemblyInfoInputs.cache
 D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.AssemblyInfo.cs
 D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.csproj.CoreCompileInputs.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\bin\Debug\net6.0\eCommerceDataAccess.deps.json
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\bin\Debug\net6.0\eCommerceDataAccess.runtimeconfig.json
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\bin\Debug\net6.0\eCommerceDataAccess.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\bin\Debug\net6.0\eCommerceDataAccess.pdb
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\bin\Debug\net6.0\eCommerceEntity.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\bin\Debug\net6.0\eCommerceEntity.pdb
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.csproj.CopyComplete
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\refint\eCommerceDataAccess.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.pdb
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\eCommerceDataAccess.genruntimeconfig.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceDataAccess\obj\Debug\net6.0\ref\eCommerceDataAccess.dll

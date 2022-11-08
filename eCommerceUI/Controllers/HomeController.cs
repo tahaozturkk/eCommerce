@@ -1,26 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using eCommerceApplication.Services;
+using eCommerceEntity.Dtos;
+using eCommerceEntity.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace eCommerceMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IProductService _productService;
+        public HomeController(IProductService productService)
         {
-            _logger = logger;
+            _productService = productService;
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var result = _productService.GetProducts(); 
+            return View(result);
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
     }
 }

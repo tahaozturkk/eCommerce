@@ -697,6 +697,20 @@
           }
         }
       },
+      "eCommerceApplication/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.10",
+          "eCommerceEntity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/eCommerceApplication.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eCommerceApplication.dll": {}
+        }
+      },
       "eCommerceDataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -723,6 +737,20 @@
         },
         "runtime": {
           "bin/placeholder/eCommerceEntity.dll": {}
+        }
+      },
+      "eCommerceService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "eCommerceApplication": "1.0.0",
+          "eCommerceDataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/eCommerceService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eCommerceService.dll": {}
         }
       }
     }
@@ -2037,6 +2065,11 @@
         "version.txt"
       ]
     },
+    "eCommerceApplication/1.0.0": {
+      "type": "project",
+      "path": "../eCommerceApplication/eCommerceApplication.csproj",
+      "msbuildProject": "../eCommerceApplication/eCommerceApplication.csproj"
+    },
     "eCommerceDataAccess/1.0.0": {
       "type": "project",
       "path": "../eCommerceDataAccess/eCommerceDataAccess.csproj",
@@ -2046,13 +2079,20 @@
       "type": "project",
       "path": "../eCommerceEntity/eCommerceEntity.csproj",
       "msbuildProject": "../eCommerceEntity/eCommerceEntity.csproj"
+    },
+    "eCommerceService/1.0.0": {
+      "type": "project",
+      "path": "../eCommerceService/eCommerceService.csproj",
+      "msbuildProject": "../eCommerceService/eCommerceService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
-      "eCommerceDataAccess >= 1.0.0"
+      "eCommerceApplication >= 1.0.0",
+      "eCommerceDataAccess >= 1.0.0",
+      "eCommerceService >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2082,8 +2122,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\Users\\oztur\\source\\repos\\eCommerceMVC\\eCommerceApplication\\eCommerceApplication.csproj": {
+              "projectPath": "D:\\Users\\oztur\\source\\repos\\eCommerceMVC\\eCommerceApplication\\eCommerceApplication.csproj"
+            },
             "D:\\Users\\oztur\\source\\repos\\eCommerceMVC\\eCommerceDataAccess\\eCommerceDataAccess.csproj": {
               "projectPath": "D:\\Users\\oztur\\source\\repos\\eCommerceMVC\\eCommerceDataAccess\\eCommerceDataAccess.csproj"
+            },
+            "D:\\Users\\oztur\\source\\repos\\eCommerceMVC\\eCommerceService\\eCommerceService.csproj": {
+              "projectPath": "D:\\Users\\oztur\\source\\repos\\eCommerceMVC\\eCommerceService\\eCommerceService.csproj"
             }
           }
         }

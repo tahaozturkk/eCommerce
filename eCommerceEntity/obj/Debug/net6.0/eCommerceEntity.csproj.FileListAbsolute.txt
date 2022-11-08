@@ -1,0 +1,12 @@
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\bin\Debug\net6.0\eCommerceEntity.deps.json
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\bin\Debug\net6.0\eCommerceEntity.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\bin\Debug\net6.0\eCommerceEntity.pdb
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.csproj.AssemblyReference.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.AssemblyInfoInputs.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.AssemblyInfo.cs
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.csproj.CoreCompileInputs.cache
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\refint\eCommerceEntity.dll
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\eCommerceEntity.pdb
+D:\Users\oztur\source\repos\eCommerceMVC\eCommerceEntity\obj\Debug\net6.0\ref\eCommerceEntity.dll
